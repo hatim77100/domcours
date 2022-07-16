@@ -67,6 +67,12 @@
           </p>
         </div>
       </div>
+      <form method="POST">
+        <label>Nom :</label>
+        <input type="text" id="nom" />
+        <label>Prenom :</label>
+        <input type="text" id="prenom" />
+      </form>
     </main>
     <footer
       style="
@@ -79,9 +85,37 @@
       &#169; H2PROG 2021
     </footer>
     <script>
-      var monForm = document.querySelector("form");
-      monForm.method = "GET"
-             
+
+        //  EXERCICE 5 : MA MéTHODE
+    //   var monForm = document.querySelector("form");
+    //   monForm.method = "GET";
+    //   monForm.innerHTML += "<input type='submit' value= 'Valider' />";
+    //   var input = document.querySelector("#nom");
+    //   input.name = "nom";
+    //   var input = document.querySelector("#prenom");
+    //   input.name = "prenom";
+    //   var urlParams = new URLSearchParams(window.location.search);
+    //   var myParam = urlParams.get("nom");
+    //   var myParam2 = urlParams.get("prenom");
+    //   if ((myParam != null) & (myParam2 != null)) {
+    //     var baliseP = document.createElement("p");
+    //     baliseP.innerHTML =
+    //       "votre nom est " + myParam + "\n" + "et votre prenom est " + myParam2;
+    //     monForm.insertAdjacentElement("afterend", baliseP);
+    //   }
+
+    //   Méthode de prof:
+    var monForm = document.querySelector("form");
+    monForm.method = "GET";
+
+    var inputsForm = monForm.querySelectorAll("input");
+    for(var i = 0 ; i < inputsForm.length ; i++ ){
+        inputsForm[i].name = inputsForm[i].id
+    }
+    var inputSubmit = document.createElement("input");
+    inputSubmit.type ="submit";
+    inputSubmit.value = "Valider";
+    monForm.appendChild(inputSubmit);
     </script>
   </body>
 </html>
