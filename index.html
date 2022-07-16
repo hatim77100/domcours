@@ -196,6 +196,31 @@
     //   document
     //     .querySelector("#partie1")
     //     .replaceChild(img, document.querySelector("#partie1 p"));
+
+    //  EXERCICE 4 :
+
+    // document.querySelector("body header img").remove();
+    // var baliseD = document.createElement("div");
+    // baliseD.innerHTML =" un texte";
+    // console.log(baliseD);
+    // var h1 = document.querySelector("h1");
+    // document.querySelector("body main").replaceChild(baliseD, h1);
+
+    //  REMPLACER H2 PAR H3 ET CHANGER DE COULEURS:
+    var parties = document.querySelectorAll(".partie");
+    var nouveauTitre = document.createElement("h3");
+    nouveauTitre.innerHTML = " Titre de niveau 3 ";
+    nouveauTitre.style = "color:green";
+
+    for (var i = 0 ; i < parties.length ; i++){
+      var duplicateNode = nouveauTitre.cloneNode(true);
+      var baliseH2 = parties[i].querySelector("h2");
+      parties[i].replaceChild(duplicateNode, baliseH2);
+    }
+    
+
+    
+    
     // </script>
   </body>
 </html>
