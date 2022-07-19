@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .invisible {
+        display: none;
+      }
+      .visible {
+        display: block;
+      }
       .border {
         border: 2px solid black;
         border-radius: 0.5em;
@@ -21,10 +27,6 @@
       }
       .selected {
         background-color: lightslategray;
-      }
-
-      .champs-color {
-        color: green;
       }
     </style>
   </head>
@@ -47,6 +49,9 @@
     <main style="clear: both">
       <h1 style="text-align: center">Site de présentation du DOM</h1>
       <div class="border p1 m1">
+        <button id="bP1">Partie1</button>
+        <button id="bP2">Partie2</button>
+        <button id="bP3">Partie3</button>
         <div id="partie1" class="partie">
           <h2>Partie 1</h2>
           <p>
@@ -75,23 +80,6 @@
           </p>
         </div>
       </div>
-      <form>
-        <label>Nom</label>
-        <input type="text" name="nom" />
-        <label>Prenom</label>
-        <input type="text" name="prenom" />
-        <br />
-        <label>Niveau d'étude</label>
-        <select name="niveau" onchange="selectChange()">
-          <option value=""></option>
-          <option value="BEP">BEP</option>
-          <option value="CAP">CAP</option>
-          <option value="BAC">BAC</option>
-        </select>
-        <span id="verif" style="display: none"></span>
-        <br />
-        <input type="submit" value="Valider" />
-      </form>
     </main>
     <footer
       style="
@@ -104,39 +92,59 @@
       &#169; H2PROG 2021
     </footer>
     <script>
-      //   var inputNom = document.querySelector("input[name='nom']");
-      //   function elementFocus(select) {
-      //     // console.log("select");
-      //     select.style.backgroundColor = "orange";
-      //   }
+      var bp1 = document.querySelector("#bP1");
+      var bp2 = document.querySelector("#bP2");
+      var bp3 = document.querySelector("#bP3");
 
-      //   function elementBlur(select) {
-      //     select.style.backgroundColor = "white";
-      //   }
+    //   var partie1 = document.querySelector("#partie1");
+    //   var partie2 = document.querySelector("#partie2");
+    //   var partie3 = document.querySelector("#partie3");
 
-      //   function selectChange() {
-      //     var input = document.querySelector("select[name='niveau']");
-      //     var verifSpan = document.querySelector("#verif");
-      //     verifSpan.style.display = "";
-      //     verifSpan.textContent = " Etes-vous sûr d'avoir un " + input.value + " ?";
-      //     verifSpan.style.color = "purple";
-      //     console.log("change " + input.value);
-      //   }
-      //   var titreH1 = document.querySelector("h1");
-      //   document.addEventListener("click", function(event){
-      //     console.log(event.target);
-      //   });
+    //   partie2.classList.add("invisible");
+    //   partie3.classList.add("invisible");
 
-      var inputNom = document.querySelector("input[name='nom']");
-      inputNom.addEventListener("focus", function () {
-        inputNom.style.backgroundColor = "green";
-      });
-      inputNom.addEventListener("blur", function () {
-        inputNom.style.backgroundColor = "gray";
-      });
-      inputNom.addEventListener("change", function () {
-        console.log("change");
-      });
+    //   bp1.addEventListener("click", function () {
+    //     partie1.classList.remove("invisible");
+    //     partie2.classList.add("invisible");
+    //     partie3.classList.add("invisible");
+    //   });
+
+    //   bp2.addEventListener("click", function () {
+    //     partie1.classList.add("invisible");
+    //     partie2.classList.remove("invisible");
+    //     partie3.classList.add("invisible");
+    //   });
+
+    //   bp3.addEventListener("click", function () {
+    //     partie1.classList.add("invisible");
+    //     partie2.classList.add("invisible");
+    //     partie3.classList.remove("invisible");
+
+    //   });
+      
+      // AUTRE MANIERE   
+
+      // bp1.addEventListener("click", function(){
+      //     document.querySelector("#partie1").classList.toggle("visible");
+      // })
+
+      // bp2.addEventListener("click", function(){
+      //    document.querySelector("#partie2").classList.toggle("invisible");
+      // })
+
+      // bp3.addEventListener("click", function(){
+      //     document.querySelector("#partie3").classList.toggle("invisible");
+      // })
+
+    //   AUTRE METHODE AVEC FONCTION FLECHE
+
+        bp1.addEventListener("click", () => toggleElement("partie1"));
+        bp2.addEventListener("click", () => toggleElement("partie2"));
+        bp3.addEventListener("click", () => toggleElement("partie3"));
+
+        function toggleElement(partie){
+            document.querySelector("#"+partie).classList.toggle("invisible");
+        }
     </script>
   </body>
 </html>
