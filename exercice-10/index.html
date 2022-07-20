@@ -15,6 +15,7 @@
         .m1{margin:10px;}
         .partie h2{color:red;}
         .selected{background-color : lightslategray};
+        .bg{background-color: greenyellow;}
     </style>
 </head>
 <body>
@@ -70,7 +71,10 @@
         &#169; H2PROG 2021
     </footer>
     <script>   
-       
+       var inputNom = document.querySelector("#nom");
+       inputNom.addEventListener("focus", function(event){
+        inputNom.style.backgroundColor = "green"
+       })
     </script>
 </body>
 </html>
